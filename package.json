@@ -1,4 +1,30 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "description": "## Preámbulo",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "markdown-link-extractor": "^1.2.0"
+  },
+  "scripts": {
+    "eslint": "eslint --ext .js test/",
+    "pretest": "npm run eslint",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/March-Hdz-Carba/GDL002-md-links.git"
+  },
+  "author": "Marcela Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/March-Hdz-Carba/GDL002-md-links/issues"
+  },
+  "homepage": "https://github.com/March-Hdz-Carba/GDL002-md-links#readme"
 }
