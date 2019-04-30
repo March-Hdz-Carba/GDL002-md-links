@@ -1,5 +1,5 @@
 const mdLinks = require('../index.js');
-
+const readFile = require('../links.js');
 
 describe('pathEntered', () => {
   it('should be a function', () => {
@@ -44,17 +44,35 @@ describe('pathIsDirectory', () => {
   });
 });
 
-describe('ExtNamePath', () => {
+describe('extNamePath', () => {
   it('should be true if file is .md', () => {
-    expect(mdLinks.ExtNamePath('README.md')).toBe(true);
+    expect(mdLinks.extNamePath('README.md')).toBe(true);
   });
   it('should be false if file is not .md', () => {
-    expect(mdLinks.ExtNamePath('README.txt')).toBe(false);
+    expect(mdLinks.extNamePath('README.txt')).toBe(false);
   });
 });
 
-describe('readFileMd', () => {
+//test for Syncronous function read file
+/*describe('readFileMd', () => {
   it('should be read contend of file', () => {
     expect(mdLinks.readFileMd('./prueba.md')).toBe(true);
   });
 });
+*/
+
+
+//test for Asyncronuos function read file
+test('should be read contend of file with a asyncronous function', () =>{
+  readFile('./prueba.md', null).then((result) => {
+    expect(result).toBe('Content of file');
+  });  
+});
+
+
+/*describe("getLinks", () => {
+  it("Should identify the link '[Google](https://www.google.com)' and return an array of objects", () => {
+    expect(mdLinks.getLinks("[Google](https://www.google.com)")).toEqual("[Google](https://www.google.com)");
+  });
+ });
+*/

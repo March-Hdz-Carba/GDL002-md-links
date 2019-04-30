@@ -10,6 +10,7 @@
     "test": "test"
   },
   "dependencies": {
+    "markdown-it": "^8.4.2",
     "markdown-link-extractor": "^1.2.0"
   },
   "scripts": {
