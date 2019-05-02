@@ -91,18 +91,18 @@ function urlify(data) {
   const mdLinkRgEx2 = /\[(.+?)\]\((.+?)\)/;
   let allLinks = data.match(mdLinkRgEx);
   let htmlLinks = [];
-  for (var x in allLinks) {
-    var grpdDta = mdLinkRgEx2.exec(allLinks[x]);
-    var grupoData = {
-      href: grpdDta[2],
-      text: grpdDta[1],
-      file: pathfile
+    for (var x in allLinks) {
+      var grpdDta = mdLinkRgEx2.exec(allLinks[x]);
+      var grupoData = {
+        href: grpdDta[2],
+        text: grpdDta[1],
+        file: pathfile
     }; 
     htmlLinks.push(grupoData);   
   }
-  console.log(htmlLinks.length);
-  console.log(htmlLinks);
-  return (htmlLinks);
+      console.log(htmlLinks.length);
+      console.log(htmlLinks);
+    return (htmlLinks);
  
 };
 
@@ -111,7 +111,7 @@ function urlify(data) {
 
 
 module.exports = {
-  pathEntered = pathEntered,
+  pathEntered,
   pathIsReal,
   pathIsDirectory, 
   extNamePath,

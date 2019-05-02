@@ -1,5 +1,11 @@
 # Markdown Links
 
+
+##DIAGRAMA DE FLUJO
+
+![Diagrama-MD-Links.jpg](./imagen/Diagrama-MD-Links.jpg)
+
+
 ## Preámbulo
 
 [Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado
