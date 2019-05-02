@@ -1,6 +1,6 @@
 {
   "name": "npm-md-links",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "jest": "^24.7.1"
   },

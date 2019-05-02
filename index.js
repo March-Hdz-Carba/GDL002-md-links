@@ -77,7 +77,7 @@ function readFileMd (pathfile, options){
 // result of reading file
 readFileResult.then(
   (data)=> { // On Success
-   console.log("Found links:");
+   console.log("Links Found:");
    urlify(data);
   },
   (err)=> { // On Error
