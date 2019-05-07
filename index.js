@@ -3,6 +3,7 @@ const pathfile = process.argv[2];
 const path = require ('path');
 const readFileResult = linksMd(pathfile, null);
 const fs = require('fs');
+const request = require("request");
 
 //function to verificated that user entered a path
 function pathEntered (pathfile){
@@ -78,14 +79,38 @@ function readFileMd (pathfile, options){
 readFileResult.then(
   (data)=> { // On Success
    console.log("Links Found:");
-   urlify(data);
+   let htmlLinks = urlify(data);
+
+   // Validate links found
+   for (let i = 0; i < htmlLinks.length; i++) {
+    request(htmlLinks[i].href, (error, response) => {
+      if (error){
+        console.log(htmlLinks[i].href + '  No se encontró la página');
+        htmlLinks[i].pathExist=false;
+        }
+        else{
+      const statusCode = response.statusCode;
+      // const contentType = res.headers['content-type'];
+  
+      if (statusCode === 200){
+        console.log(htmlLinks[i].href + '  Página válida ');
+        htmlLinks[i].pathExist=true;
+        }
+        else{
+        console.log('página inválida');
+      }
+    }
+      
+    });
+  }
+  
   },
   (err)=> { // On Error
       console.error(err);
   }
 )
   
-//Función que extre los links y los imprime en arreglo de objetos
+//function to extract links and print array object
 function urlify(data) {
   const mdLinkRgEx = /\[(.+?)\]\(.+?\)/g;
   const mdLinkRgEx2 = /\[(.+?)\]\((.+?)\)/;
@@ -105,8 +130,6 @@ function urlify(data) {
     return (htmlLinks);
  
 };
-
-//console.log(module.exports.getLinks().parseLinks("./README.md"));
 
 
 

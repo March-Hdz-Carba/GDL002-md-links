@@ -1,7 +1,7 @@
 # Markdown Links
 
 
-##DIAGRAMA DE FLUJO
+## DIAGRAMA DE FLUJO
 
 ![Diagrama-MD-Links.jpg](./imagen/Diagrama-MD-Links.jpg)
 
